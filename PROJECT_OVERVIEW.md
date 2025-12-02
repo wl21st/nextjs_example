@@ -1,5 +1,32 @@
 # Next.js Blog Example - Project Overview
 
+- [Next.js Blog Example - Project Overview](#nextjs-blog-example---project-overview)
+  - [📋 Project Description](#-project-description)
+  - [✨ Key Features](#-key-features)
+    - [Blog Functionality](#blog-functionality)
+    - [Performance \& Optimization](#performance--optimization)
+    - [Developer Experience](#developer-experience)
+  - [🚀 Tech Stack Overview](#-tech-stack-overview)
+  - [🏃 Quick Start Guide](#-quick-start-guide)
+    - [Prerequisites](#prerequisites)
+    - [Installation](#installation)
+    - [Available Scripts](#available-scripts)
+  - [📁 Project Structure](#-project-structure)
+    - [Key Files Explained](#key-files-explained)
+  - [🏗️ Architecture](#️-architecture)
+    - [App Router Pattern](#app-router-pattern)
+    - [Component Types](#component-types)
+    - [Routing](#routing)
+    - [Styling Strategy](#styling-strategy)
+  - [🎨 Features in Detail](#-features-in-detail)
+    - [Blog Listing Page (`/`)](#blog-listing-page-)
+    - [Blog Detail Pages (`/blog/[id]`)](#blog-detail-pages-blogid)
+    - [Dark Mode Support](#dark-mode-support)
+  - [🧪 Testing](#-testing)
+  - [📚 Additional Documentation](#-additional-documentation)
+  - [🔗 Useful Links](#-useful-links)
+  - [📝 License](#-license)
+
 ## 📋 Project Description
 
 This is a modern blog application built with Next.js 16, showcasing the latest App Router architecture and React 19 features. The project demonstrates best practices for building performant, type-safe web applications with server-side rendering, client-side interactivity, and optimized asset delivery.
@@ -7,18 +34,21 @@ This is a modern blog application built with Next.js 16, showcasing the latest A
 ## ✨ Key Features
 
 ### Blog Functionality
+
 - **Dynamic Blog Listing**: Interactive homepage displaying all blog posts in a responsive grid layout
 - **Real-time Search**: Client-side filtering by title and content with instant results
 - **Individual Post Pages**: Server-rendered detail pages with full-width hero images
 - **404 Handling**: Graceful error handling for invalid blog post IDs
 
 ### Performance & Optimization
+
 - **Image Optimization**: Automatic image optimization using [`next/image`](next.config.ts:1) with Unsplash CDN support
 - **Font Optimization**: Variable fonts (Geist Sans & Mono) with Latin subset for optimal loading
 - **Server Components**: Default server-side rendering for improved performance
 - **CSS Modules**: Component-scoped styling preventing style conflicts
 
 ### Developer Experience
+
 - **TypeScript**: Full type safety with strict mode enabled
 - **ESLint**: Code quality enforcement with Next.js recommended rules
 - **Hot Reload**: Fast refresh during development
@@ -40,22 +70,26 @@ For detailed dependency information, see [TECH_STACK.md](TECH_STACK.md).
 ## 🏃 Quick Start Guide
 
 ### Prerequisites
+
 - Node.js 20 LTS or higher
 - npm (comes with Node.js)
 
 ### Installation
 
 1. **Clone the repository** (or navigate to the project directory)
+
    ```bash
    cd nextjs_example
    ```
 
 2. **Install dependencies**
+
    ```bash
    npm install
    ```
 
 3. **Start development server**
+
    ```bash
    npm run dev
    ```
@@ -117,7 +151,9 @@ nextjs_example/
 ## 🏗️ Architecture
 
 ### App Router Pattern
+
 This project uses Next.js App Router (introduced in Next.js 13+), which provides:
+
 - File-based routing in the `src/app` directory
 - Server Components by default for better performance
 - Colocation of routes, components, and styles
@@ -126,10 +162,12 @@ This project uses Next.js App Router (introduced in Next.js 13+), which provides
 ### Component Types
 
 **Server Components** (default):
+
 - [`src/app/blog/[id]/page.tsx`](src/app/blog/[id]/page.tsx:1) - Blog detail pages
 - [`src/app/layout.tsx`](src/app/layout.tsx:1) - Root layout
 
 **Client Components** (with `"use client"`):
+
 - [`src/app/page.tsx`](src/app/page.tsx:1) - Home page with search interactivity
 
 ### Routing
@@ -147,6 +185,7 @@ This project uses Next.js App Router (introduced in Next.js 13+), which provides
 ## 🎨 Features in Detail
 
 ### Blog Listing Page (`/`)
+
 - Displays all blog posts from [`src/data.ts`](src/data.ts:1)
 - Real-time search filtering by title and content
 - Responsive grid layout (1-3 columns based on screen size)
@@ -154,6 +193,7 @@ This project uses Next.js App Router (introduced in Next.js 13+), which provides
 - Click-through to individual blog posts
 
 ### Blog Detail Pages (`/blog/[id]`)
+
 - Server-side rendered for optimal SEO
 - Dynamic route parameters using Next.js 15+ async params
 - Full-width hero images with proper aspect ratios
@@ -161,6 +201,7 @@ This project uses Next.js App Router (introduced in Next.js 13+), which provides
 - 404 handling for non-existent posts
 
 ### Dark Mode Support
+
 The application includes CSS variable-based theming that automatically adapts to user preferences via `prefers-color-scheme` media query.
 
 ## 🧪 Testing
