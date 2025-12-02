@@ -13,6 +13,13 @@
     - [Available Scripts](#available-scripts)
   - [📁 Project Structure](#-project-structure)
     - [Key Files Explained](#key-files-explained)
+  - [📖 Documentation Structure \& Guidelines](#-documentation-structure--guidelines)
+    - [Documentation Folder Structure](#documentation-folder-structure)
+    - [Documentation Guidelines](#documentation-guidelines)
+      - [Placement Rules](#placement-rules)
+      - [Naming Conventions](#naming-conventions)
+      - [Update Rules](#update-rules)
+      - [Markdown Standards](#markdown-standards)
   - [🏗️ Architecture](#️-architecture)
     - [App Router Pattern](#app-router-pattern)
     - [Component Types](#component-types)
@@ -149,6 +156,51 @@ nextjs_example/
 - **[`next.config.ts`](next.config.ts:1)**: Next.js configuration including image domains
 - **[`tsconfig.json`](tsconfig.json:1)**: TypeScript compiler options with path aliases
 
+## 📖 Documentation Structure & Guidelines
+
+### Documentation Folder Structure
+
+The project maintains a well-organized documentation structure in the `docs/` directory:
+
+```
+docs/
+├── design/                 # Architecture and design documentation
+│   ├── ARCHITECTURE.md     # System architecture overview
+│   ├── CSS_ANALYSIS.md     # CSS structure and analysis
+│   └── TECH_STACK.md       # Technology stack details
+├── development/            # Development process documentation
+│   ├── CONTRIBUTING.md     # Contribution guidelines
+│   └── CSS_FIX_PLAN.md     # CSS improvement plan
+├── requirement/            # Requirements documentation (reserved)
+└── test/                   # Testing documentation
+    └── TESTING.md          # Testing strategy and setup
+```
+
+### Documentation Guidelines
+
+#### Placement Rules
+- **Design Documentation**: Place in `docs/design/` (architecture, tech stack, UI/UX specs)
+- **Development Documentation**: Place in `docs/development/` (contributing, workflows, plans)
+- **Requirements**: Place in `docs/requirement/` (business requirements, user stories)
+- **Testing Documentation**: Place in `docs/test/` (testing strategies, test cases)
+
+#### Naming Conventions
+- Use UPPER_CASE for main documentation files (e.g., `ARCHITECTURE.md`)
+- Use descriptive names that clearly indicate content
+- Avoid generic names like `README.md` in subdirectories
+
+#### Update Rules
+- **Create New Files**: When introducing new features or processes that need documentation
+- **Update Existing**: Modify existing files when refining processes or adding details
+- **Cross-References**: Use relative links to reference related documentation
+- **Version Control**: All documentation changes should be committed with clear commit messages
+
+#### Markdown Standards
+- Use consistent heading levels (start with H2 for main sections)
+- Include table of contents for longer documents
+- Use code blocks with language specification for code examples
+- Maintain consistent emoji usage for visual organization
+
 ## 🏗️ Architecture
 
 ### App Router Pattern
@@ -211,9 +263,9 @@ Currently, no testing framework is configured. For testing recommendations and s
 
 ## 📚 Additional Documentation
 
-- **[TECH_STACK.md](TECH_STACK.md)**: Detailed technical specifications, dependencies, and configuration
-- **[TESTING.md](TESTING.md)**: Testing strategy, recommendations, and setup guide
-- **[CONTRIBUTING.md](CONTRIBUTING.md)**: Contribution guidelines and development workflow
+- **[TECH_STACK.md](docs/design/TECH_STACK.md)**: Detailed technical specifications, dependencies, and configuration
+- **[TESTING.md](docs/test/TESTING.md)**: Testing strategy, recommendations, and setup guide
+- **[CONTRIBUTING.md](docs/development/CONTRIBUTING.md)**: Contribution guidelines and development workflow
 
 ## 🔗 Useful Links
 
