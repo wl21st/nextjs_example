@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./page.module.css";
-import blogPosts from "@/data";
+import blogPosts from "@/data/blogPosts";
 
 interface PageProps {
   params: Promise<{
