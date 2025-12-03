@@ -45,7 +45,7 @@ graph TB
         D --> F[Data Layer]
         E --> F
     end
-    
+
     subgraph "External Services"
         F --> G[Unsplash CDN]
         B --> H[Vercel Edge Network]
@@ -55,7 +55,7 @@ graph TB
         B --> I[Public Directory]
         I --> J[Images/Icons]
     end
-    
+
     style A fill:#e1f5ff
     style B fill:#fff4e1
     style C fill:#f0e1ff
@@ -81,7 +81,7 @@ graph LR
     end
     
     subgraph "Data Layer"
-        D --> H[data.ts<br/>Blog Posts]
+        D --> H[blogPosts.ts<br/>Blog Posts]
         E --> H
         F --> H
     end
@@ -174,18 +174,18 @@ sequenceDiagram
 
 ```mermaid
 graph TD
-    A[App Router] --> B[/ Root]
+    A[App Router] --> B["/ Root"]
     B --> C[layout.tsx<br/>Root Layout<br/>Server Component]
     B --> D[page.tsx<br/>Home Page<br/>Client Component]
     B --> E[globals.css<br/>Global Styles]
-    
-    B --> F[/blog Dynamic Route]
+
+    B --> F["/blog Dynamic Route"]
     F --> G["/blog/[id]"]
     G --> H[page.tsx<br/>Blog Detail<br/>Server Component]
     G --> I[page.module.css<br/>Scoped Styles]
-    
+
     D --> J[page.module.css<br/>Scoped Styles]
-    
+
     style A fill:#9C27B0,color:#fff
     style C fill:#4CAF50,color:#fff
     style D fill:#2196F3,color:#fff
@@ -208,7 +208,7 @@ flowchart TD
     H --> I[useState for Search]
     
     D --> J[Server-Side Rendering]
-    J --> K[Fetch Data from data.ts]
+    J --> K["Fetch Data from data/blogPosts.ts"]
     K --> L{Post Found?}
     L -->|Yes| M[Render Post]
     L -->|No| N[404 Not Found]
@@ -227,7 +227,7 @@ flowchart TD
 stateDiagram-v2
     [*] --> InitialLoad
     InitialLoad --> DisplayAllPosts: Component Mounts
-    
+
     DisplayAllPosts --> UserTyping: User enters search term
     UserTyping --> FilterPosts: onChange event
     FilterPosts --> DisplayFiltered: setState(searchTerm)
@@ -262,7 +262,7 @@ graph TB
     end
     
     subgraph "Data Layer"
-        I[data.ts] -.Import.-> E
+        I[data/blogPosts.ts] -.Import.-> E
         I -.Import.-> C
     end
     
@@ -290,10 +290,10 @@ graph TD
     B --> E[blog.png]
     B --> F[*.svg icons]
     B --> G[favicon.ico]
-    
+
     C --> H[app/]
-    C --> I[data.ts]
-    
+    C --> I[data/blogPosts.ts]
+
     H --> J[layout.tsx]
     H --> K[page.tsx]
     H --> L[globals.css]
@@ -321,7 +321,7 @@ flowchart LR
     A[Source Code] --> B[TypeScript Compilation]
     B --> C[ESLint Validation]
     C --> D[Next.js Build]
-    
+
     D --> E[Static Generation]
     D --> F[Server Components]
     D --> G[Client Components]
@@ -454,7 +454,7 @@ const filteredPosts = blogPosts.filter((post) =>
 
 ### Data Layer Architecture
 
-#### [`data.ts`](src/data.ts:1)
+#### [`data/blogPosts.ts`](src/data/blogPosts.ts:1)
 
 **Purpose**: Centralized data source for blog posts
 
@@ -486,14 +486,14 @@ export default blogPosts;
 1. **Server Component Access** (Blog Detail):
 
    ```typescript
-   import blogPosts from "@/data";
+   import blogPosts from "@/data/blogPosts";
    const post = blogPosts.find((p) => p.id === parseInt(id));
    ```
 
 2. **Client Component Access** (Home Page):
 
    ```typescript
-   import blogPosts from "@/data";
+   import blogPosts from "@/data/blogPosts";
    const filteredPosts = blogPosts.filter(/* ... */);
    ```
 
@@ -699,7 +699,7 @@ Clear separation between:
 
 - **Presentation**: Components (`.tsx`)
 - **Styling**: CSS Modules (`.module.css`)
-- **Data**: Data layer ([`data.ts`](src/data.ts:1))
+- **Data**: Data layer ([`data/blogPosts.ts`](src/data/blogPosts.ts:1))
 - **Configuration**: Config files
 
 ---
@@ -750,7 +750,7 @@ const nextConfig: NextConfig = {
 ### Scalability Enhancements
 
 1. **Database Integration**
-   - Replace [`data.ts`](src/data.ts:1) with database queries
+   - Replace [`data/blogPosts.ts`](src/data/blobPosts.ts:1) with database queries
    - Add data fetching layer
    - Implement caching strategy
 
