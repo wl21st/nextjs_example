@@ -138,7 +138,8 @@ nextjs_example/
 │   │           ├── page.tsx  # Blog detail page
 │   │           └── page.module.css
 │
-│   └── data.ts               # Blog post data source
+│   └── data/
+│       └── blogPosts.ts      # Blog post data source
 │
 ├── next.config.ts            # Next.js configuration
 ├── tsconfig.json             # TypeScript configuration
@@ -152,7 +153,7 @@ nextjs_example/
 - **[`src/app/layout.tsx`](src/app/layout.tsx:1)**: Root layout component with metadata, font configuration, and HTML structure
 - **[`src/app/page.tsx`](src/app/page.tsx:1)**: Home page with blog listing and search functionality (Client Component)
 - **[`src/app/blog/[id]/page.tsx`](src/app/blog/[id]/page.tsx:1)**: Dynamic blog detail pages (Server Component)
-- **[`src/data.ts`](src/data.ts:1)**: Static blog post data with TypeScript types
+- **[`src/data/blogPosts.ts`](src/data/blogPosts.ts:1)**: Static blog post data with TypeScript types
 - **[`next.config.ts`](next.config.ts:1)**: Next.js configuration including image domains
 - **[`tsconfig.json`](tsconfig.json:1)**: TypeScript compiler options with path aliases
 
@@ -239,7 +240,7 @@ This project uses Next.js App Router (introduced in Next.js 13+), which provides
 
 ### Blog Listing Page (`/`)
 
-- Displays all blog posts from [`src/data.ts`](src/data.ts:1)
+- Displays all blog posts from [`src/data/blogPosts.ts`](src/data/blogPosts.ts:1)
 - Real-time search filtering by title and content
 - Responsive grid layout (1-3 columns based on screen size)
 - Optimized images with automatic lazy loading
